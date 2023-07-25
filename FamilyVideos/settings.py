@@ -15,7 +15,10 @@ from decouple import Config, Csv
 from decouple import config
 
 #AWS
-
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME_VIDEOS=config('AWS_STORAGE_BUCKET_NAME_VIDEOS')
+AWS_STORAGE_BUCKET_NAME_THUMBNAILS=config('AWS_STORAGE_BUCKET_NAME_THUMBNAILS')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
