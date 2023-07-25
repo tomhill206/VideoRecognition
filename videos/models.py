@@ -1,3 +1,9 @@
 from django.db import models
+class Video(models.Model):
+    title = models.CharField(max_length=100)
+    labels = models.JSONField()
+    video_file = models.URLField()
+    thumbnail_file = models.URLField()
 
-# Create your models here.
+    def __str__(self):
+        return self.title
