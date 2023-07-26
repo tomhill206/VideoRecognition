@@ -8,8 +8,9 @@
     <ul>
         {% for video in videos %}
             <li>
-                <img src="{{ video.thumbnail_url }}" alt="{{ video.title }} Thumbnail">
+                <img src="{{ video.thumbnail_file }}" alt="{{ video.title }} Thumbnail">
                 <p>{{ video.title }}</p>
+                <a href="{{ video.video_file }}" target="_blank">Watch Video</a>
             </li>
         {% endfor %}
     </ul>

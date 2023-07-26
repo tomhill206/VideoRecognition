@@ -25,18 +25,20 @@ def create_video_objects():
 
         for video_file in video_files:
             # Construct the video URL
-            video_url = f'https://video-archive-video-files.s3.amazonaws.com/{video_file}'
+            video_url = f'https://video-archive-video-files.s3.eu-west-2.amazonaws.com/{video_file}'
 
             # Construct the thumbnail URL based on the video file name
             video_file_name = os.path.basename(video_file)
-            thumbnail_file_name = f'{os.path.splitext(video_file_name)[0]}_thumbnail.jpg'
-            thumbnail_url = f'https://video-archive-thumbnail-files.s3.amazonaws.com/{thumbnail_file_name}'
+            thumbnail_file = f'{os.path.splitext(video_file_name)[0]}_thumbnail.jpg'
+            thumbnail_url = f'https://video-archive-thumbnail-files.s3.eu-west-2.amazonaws.com/{thumbnail_file}'
 
             # Create the Video object if it doesn't already exist
             video, created = Video.objects.get_or_create(video_file=video_file, defaults={
-                'video_file': video_url,
-                'thumbnail_file': thumbnail_url,
-                'title': video_file_name 
+                'title': video_file_name ,
+                'video_file': video_file_name,
+                'thumbnail_file': thumbnail_file,
+                'video_url': video_url,
+                'thumbnail_url': thumbnail_url
             })
 
 
