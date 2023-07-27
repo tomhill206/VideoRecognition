@@ -14,6 +14,7 @@ class Video(models.Model):
     thumbnail_url = models.URLField(null=True)
 
     signed_url = models.URLField(blank=True, null=True)
+    thumbnail_signed_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.title
