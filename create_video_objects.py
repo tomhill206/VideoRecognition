@@ -22,25 +22,17 @@ def create_video_objects():
     if 'Contents' in video_files_response:
         video_files = [obj['Key'] for obj in video_files_response['Contents']]
 
-        #breakpoint()
-
         for video_file in video_files:
-            # Construct the video URL
-            video_url = f'https://video-archive-video-files.s3.eu-west-2.amazonaws.com/{video_file}'
-
             video_file_name = os.path.basename(video_file)
             date_time = convert_to_datetime(os.path.splitext(video_file_name)[0])
             thumbnail_file = f'{os.path.splitext(video_file_name)[0]}_thumbnail.jpg'
-            thumbnail_url = f'https://video-archive-thumbnail-files.s3.eu-west-2.amazonaws.com/{thumbnail_file}'
-
+            
             # Create the Video object if it doesn't already exist
             video, created = Video.objects.get_or_create(video_file=video_file, defaults={
                 'title': video_file_name ,
                 'date_time': date_time,
                 'video_file': video_file_name,
                 'thumbnail_file': thumbnail_file,
-                'video_url': video_url,
-                'thumbnail_url': thumbnail_url
             })
 
 def convert_to_datetime(date_string):

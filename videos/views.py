@@ -8,11 +8,13 @@ from django.conf import settings
 def video_list(request):
     videos = Video.objects.all()
     for video in videos:
-        video.signed_url = generate_signed_url('video_archive_video_files', video.video_url)
-        video.thumbnail_signed_url = generate_signed_url('video_archive_thumbnail_files', video.thumbnail_url)
+        video.signed_url = generate_signed_url('video-archive-video-files', video.video_file)
+        video.thumbnail_signed_url = generate_signed_url('video-archive-thumbnail-files', video.thumbnail_file)
+
+    #breakpoint()
     return render(request, 'video_list.html', {'videos': videos})
 
-    
+
 def generate_signed_url(bucket_name, object_key):
     s3_client = boto3.client('s3',
                              aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
