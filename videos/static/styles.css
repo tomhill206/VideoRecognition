@@ -1,0 +1,38 @@
+/* Import Tailwind CSS */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Custom styles */
+/* Center the grid container horizontally */
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Style the video grid items */
+.video-item {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Style the video thumbnails */
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+/* Style the video titles */
+.video-title {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Add spacing between grid items */
+.grid-gap {
+    gap: 1rem;
+}

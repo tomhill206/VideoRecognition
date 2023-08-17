@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Video List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Grid</title>
+    <!-- Include the Tailwind CSS stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Video List</h1>
-    <ul>
-        {% for video in videos %}
-            <li>
-                <img src="{{ video.thumbnail_signed_url }}" alt="{{ video.title }} Thumbnail">
-                <p>{{ video.title }}</p>
-                <a href="{{ video.signed_url }}" target="_blank">Watch Video</a>
-            </li>
-        {% endfor %}
-    </ul>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-2xl font-semibold mb-4">Video Grid</h1>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {% for video in videos %}
+                <div class="bg-white rounded shadow-md p-4">
+                    <a href="{{ video.signed_url }}" target="_blank">
+                        <img src="{{ video.thumbnail_signed_url }}" alt="Video Thumbnail" class="w-full h-auto mb-2">
+                    </a>
+                    <p class="text-gray-800 text-sm">{{ video.title }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
