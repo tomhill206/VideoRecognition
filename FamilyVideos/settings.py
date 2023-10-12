@@ -11,16 +11,21 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import Config, Csv
-from decouple import config
+from dotenv import load_dotenv
+
+# Load the environment variables from the .env file
+load_dotenv()
+
+# Access the environment variables
+import os
 
 #AWS
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME_VIDEOS=config('AWS_STORAGE_BUCKET_NAME_VIDEOS')
-AWS_STORAGE_BUCKET_NAME_THUMBNAILS=config('AWS_STORAGE_BUCKET_NAME_THUMBNAILS')
-AWS_S3_REGION_NAME=config('AWS_S3_REGION_NAME')
-SIGNED_URL_EXPIRATION_TIME=config('SIGNED_URL_EXPIRATION_TIME')
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME_VIDEOS=os.getenv('AWS_STORAGE_BUCKET_NAME_VIDEOS')
+AWS_STORAGE_BUCKET_NAME_THUMBNAILS=os.getenv('AWS_STORAGE_BUCKET_NAME_THUMBNAILS')
+AWS_S3_REGION_NAME=os.getenv('AWS_S3_REGION_NAME')
+SIGNED_URL_EXPIRATION_TIME=os.getenv('SIGNED_URL_EXPIRATION_TIME')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
