@@ -11,6 +11,7 @@ class Video(models.Model):
     thumbnail_file = models.CharField(max_length=100)
 
     unique_labels = models.TextField(blank=True)
+    embeddings = models.TextField(blank=True)
 
     def __str__(self):
         return self.title

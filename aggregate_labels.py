@@ -1,4 +1,3 @@
-import json
 import os 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FamilyVideos.settings')
