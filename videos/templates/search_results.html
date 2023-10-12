@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Grid</title>
-    <!-- Include the Tailwind CSS stylesheet -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Video Grid</title>
+        <!-- Include the Tailwind CSS stylesheet -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    </head>
 <body class="bg-gray-100">
     <div class="container mx-auto py-8">
-        <h1 class="text-2xl font-semibold mb-4">Video Grid</h1>
+        <h1 class="text-2xl font-semibold mb-4">Search Results for "{{ query }}"</h1>
 
-        <!-- Search Bar -->
+        <!-- Button to Return to Home -->
+        <a href="{% url 'video_list' %}" class="bg-blue-500 text-white px-4 py-2 rounded-md mb-4 inline-block">
+            Return to Home
+        </a>
+
+        <!-- Search Bar to Make Another Search -->
         <form action="{% url 'search' %}" method="get">
             <input type="text" name="query" placeholder="Search for videos">
             <button type="submit">Search</button>
         </form>
-        
-        <!-- Grid -->
+
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {% for video in videos %}
                 <div class="bg-white rounded shadow-md p-4">
